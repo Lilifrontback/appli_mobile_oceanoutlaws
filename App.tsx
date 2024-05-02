@@ -5,11 +5,13 @@ import SurfViewModel from "./viewModel/surfViewModel";
 
 export default function App() {
 	const [count, setCount] = useState(0);
-	const [surf, setSurf] = useState<string | string[]>([]);
+	const [surf, setSurf] = useState<
+		{records: {[key: string]: string}[]}[] | null
+	>(null);
 
 	useEffect(() => {
 		const surfViewModel = new SurfViewModel();
-		const data: string | string[] = surfViewModel.showData(); // Définir explicitement le type de data
+		const data = surfViewModel.showData();
 		setSurf(data);
 	}, []);
 
@@ -17,10 +19,29 @@ export default function App() {
 		<View style={styles.container}>
 			<Text>{count}</Text>
 			<Button title="Increment" onPress={() => setCount(count + 1)} />
-			{Array.isArray(surf) ? (
-				surf.map((item, index) => <Text key={index}>{item}</Text>)
+			{surf !== null ? (
+				<View style={styles.cardsContainer}>
+					{surf.map((item, index) => (
+						<View
+							key={index}
+							style={[styles.card, index !== 0 && styles.cardMarginTop]}
+						>
+							{item.records.map((record, recordIndex) => (
+								<View key={recordIndex} style={styles.record}>
+									<Text style={styles.recordTitle}>
+										Surf Break: {record["Surf Break"]}
+									</Text>
+									<Text style={styles.recordText}>
+										Address: {record.Address}
+									</Text>
+									<Text style={styles.recordText}>Photos: {record.Photos}</Text>
+								</View>
+							))}
+						</View>
+					))}
+				</View>
 			) : (
-				<Text>{surf}</Text>
+				<Text>Loading...</Text>
 			)}
 			<StatusBar style="auto" />
 		</View>
@@ -33,5 +54,26 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		alignItems: "center",
 		justifyContent: "center",
+	},
+	cardsContainer: {
+		alignItems: "center",
+	},
+	card: {
+		padding: 10,
+		borderRadius: 8,
+		width: "90%",
+	},
+	cardMarginTop: {
+		marginTop: 10,
+	},
+	record: {
+		backgroundColor: "gray",
+		marginVertical: 5,
+	},
+	recordTitle: {
+		fontWeight: "bold",
+	},
+	recordText: {
+		fontSize: 14,
 	},
 });

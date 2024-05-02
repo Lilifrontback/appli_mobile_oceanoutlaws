@@ -1,16 +1,28 @@
-// surfModel.ts
 class SurfModel {
-	private data: string[];
+	private data: {records: {[key: string]: string}[]}[];
 
 	constructor() {
 		this.data = [
-			"Reef Break",
-			"https://dl.airtable.com/ZuXJZ2NnTF40kCdBfTld_thomas-ashlock-64485-unsplash.jpg",
-			"Pipeline, Oahu, Hawaii",
+			{
+				records: [
+					{
+						"Surf Break": "Reef Break",
+						Photos:
+							"https://dl.airtable.com/ZuXJZ2NnTF40kCdBfTld_thomas-ashlock-64485-unsplash.jpg",
+						Address: "Pipeline, Oahu, Hawaii",
+					},
+					{
+						"Surf Break": "Point Break",
+						Photos:
+							"https://dl.airtable.com/e3QoP3cFSyykZJOvWGIy_cesar-couto-477018-unsplash%20(1).jpg",
+						Address: "Supertubes, Jeffreys Bay, South Africa",
+					},
+				],
+			},
 		];
 	}
 
-	getData(): string[] {
+	getData(): {records: {[key: string]: string}[]}[] {
 		return this.data;
 	}
 }

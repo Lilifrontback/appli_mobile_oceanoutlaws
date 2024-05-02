@@ -1,4 +1,3 @@
-// HelloWorldViewModel.ts
 import SurfModel from "../model/surfModel";
 import SurfView from "../view/surfView";
 
@@ -11,11 +10,12 @@ class SurfViewModel {
 		this.view = new SurfView();
 	}
 
-	showData(): string | string[] {
-		// Définir le type de retour comme string ou tableau de string
-		const data = this.model.getData();
+	showData(): {records: {[key: string]: string}[]}[] {
+		const data = this.model.getData().map((record) => ({
+			records: record.records,
+		}));
 		this.view.displayData(data);
-		return data; // Retourner les données récupérées du modèle
+		return data;
 	}
 }
 
