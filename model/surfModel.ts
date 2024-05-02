@@ -8,13 +8,13 @@ class SurfModel {
 					{
 						"Surf Break": "Reef Break",
 						Photos:
-							"https://dl.airtable.com/ZuXJZ2NnTF40kCdBfTld_thomas-ashlock-64485-unsplash.jpg",
+							"https://www.voyageursdumonde.fr/voyage-sur-mesure/magazine-voyage/ShowPhoto/1490/0",
 						Address: "Pipeline, Oahu, Hawaii",
 					},
 					{
 						"Surf Break": "Point Break",
 						Photos:
-							"https://dl.airtable.com/e3QoP3cFSyykZJOvWGIy_cesar-couto-477018-unsplash%20(1).jpg",
+							"https://www.voyageursdumonde.fr/voyage-sur-mesure/magazine-voyage/ShowPhoto/1490/0",
 						Address: "Supertubes, Jeffreys Bay, South Africa",
 					},
 				],

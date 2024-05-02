@@ -1,10 +1,9 @@
 import {StatusBar} from "expo-status-bar";
 import React, {useEffect, useState} from "react";
-import {Button, StyleSheet, Text, View} from "react-native";
+import {Button, Image, StyleSheet, Text, View} from "react-native";
 import SurfViewModel from "./viewModel/surfViewModel";
 
 export default function App() {
-	const [count, setCount] = useState(0);
 	const [surf, setSurf] = useState<
 		{records: {[key: string]: string}[]}[] | null
 	>(null);
@@ -17,8 +16,6 @@ export default function App() {
 
 	return (
 		<View style={styles.container}>
-			<Text>{count}</Text>
-			<Button title="Increment" onPress={() => setCount(count + 1)} />
 			{surf !== null ? (
 				<View style={styles.cardsContainer}>
 					{surf.map((item, index) => (
@@ -34,7 +31,7 @@ export default function App() {
 									<Text style={styles.recordText}>
 										Address: {record.Address}
 									</Text>
-									<Text style={styles.recordText}>Photos: {record.Photos}</Text>
+									<Image source={{uri: record.Photos}} style={styles.image} />
 								</View>
 							))}
 						</View>
@@ -59,6 +56,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	card: {
+		backgroundColor: "#f0f0f0",
 		padding: 10,
 		borderRadius: 8,
 		width: "90%",
@@ -67,7 +65,6 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 	},
 	record: {
-		backgroundColor: "gray",
 		marginVertical: 5,
 	},
 	recordTitle: {
@@ -75,5 +72,11 @@ const styles = StyleSheet.create({
 	},
 	recordText: {
 		fontSize: 14,
+	},
+	image: {
+		width: 200, // Ajustez la largeur et la hauteur selon vos besoins
+		height: 200,
+		marginVertical: 10,
+		resizeMode: "cover", // Ajustez le mode de redimensionnement selon vos besoins
 	},
 });
