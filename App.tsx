@@ -1,25 +1,27 @@
 import {StatusBar} from "expo-status-bar";
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, StyleSheet, Text, View} from "react-native";
-import React, {useEffect} from "react";
-import HelloWorldViewModel from "./viewModel/surfViewModel";
+import SurfViewModel from "./viewModel/surfViewModel";
 
 export default function App() {
 	const [count, setCount] = useState(0);
+	const [surf, setSurf] = useState<string | string[]>([]);
 
 	useEffect(() => {
-		// Créer une instance du ViewModel
-		const helloWorldViewModel = new HelloWorldViewModel();
-
-		// Afficher le message "Hello, World!" dans la console
-		helloWorldViewModel.showMessage();
-	}, []); // Utilisez une dépendance vide pour que cela s'exécute une seule fois après le montage
+		const surfViewModel = new SurfViewModel();
+		const data: string | string[] = surfViewModel.showData(); // Définir explicitement le type de data
+		setSurf(data);
+	}, []);
 
 	return (
 		<View style={styles.container}>
-			<Text>Hello, World!</Text> {/* Affiche le "Hello, World!" */}
 			<Text>{count}</Text>
 			<Button title="Increment" onPress={() => setCount(count + 1)} />
+			{Array.isArray(surf) ? (
+				surf.map((item, index) => <Text key={index}>{item}</Text>)
+			) : (
+				<Text>{surf}</Text>
+			)}
 			<StatusBar style="auto" />
 		</View>
 	);

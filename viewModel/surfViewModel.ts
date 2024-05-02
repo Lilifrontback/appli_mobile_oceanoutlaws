@@ -1,20 +1,22 @@
 // HelloWorldViewModel.ts
-import HelloWorldModel from "../model/surfModel";
-import HelloWorldView from "../view/surfView";
+import SurfModel from "../model/surfModel";
+import SurfView from "../view/surfView";
 
-class HelloWorldViewModel {
-	private model: HelloWorldModel;
-	private view: HelloWorldView;
+class SurfViewModel {
+	private model: SurfModel;
+	private view: SurfView;
 
 	constructor() {
-		this.model = new HelloWorldModel("Hello, World!");
-		this.view = new HelloWorldView();
+		this.model = new SurfModel();
+		this.view = new SurfView();
 	}
 
-	showMessage(): void {
-		const message = this.model.getMessage();
-		this.view.displayMessage(message);
+	showData(): string | string[] {
+		// Définir le type de retour comme string ou tableau de string
+		const data = this.model.getData();
+		this.view.displayData(data);
+		return data; // Retourner les données récupérées du modèle
 	}
 }
 
-export default HelloWorldViewModel;
+export default SurfViewModel;

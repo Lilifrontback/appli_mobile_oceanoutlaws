@@ -1,10 +1,9 @@
 // HelloWorldView.ts
-import HelloWorldModel from "../model/surfModel";
-
-class HelloWorldView {
-	displayMessage(message: string): void {
-		console.log(`Message: ${message}`);
+// surfView.ts
+class SurfView {
+	displayData(data: string[]): void {
+		console.log("Data:", data);
 	}
 }
 
-export default HelloWorldView;
+export default SurfView;
