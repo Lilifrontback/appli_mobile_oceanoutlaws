@@ -1,12 +1,14 @@
-export interface ResponseModel {
-    recordsObj : recordsObj;
-    Surf_Break:     string;
-    Photo:          string;
-    Adress:         string;
-    
+// HelloWorldModel.ts
+class HelloWorldModel {
+	private message: string;
+
+	constructor(message: string) {
+		this.message = message;
+	}
+
+	getMessage(): string {
+		return this.message;
+	}
 }
 
-export interface recordsObj {
-
-
-}
+export default HelloWorldModel;
