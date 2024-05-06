@@ -47,36 +47,44 @@ export default function App() {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: "#fff",
+		display: "flex",
+		flexDirection: "column",
+		backgroundColor: "#FF74D6FF",
 		alignItems: "center",
 		justifyContent: "center",
+		width: "100%",
 	},
 	cardsContainer: {
+		width: "96%",
 		alignItems: "center",
 	},
 	card: {
-		backgroundColor: "#f0f0f0",
 		padding: 10,
 		borderRadius: 8,
-		width: "90%",
+		width: "100%",
 	},
 	cardMarginTop: {
-		marginTop: 10,
+		marginBottom: 0,
 	},
 	record: {
+		backgroundColor: "#f0f0f0",
+		textAlign: "center",
 		marginVertical: 5,
+		marginBottom: "10%",
 	},
 	recordTitle: {
 		fontWeight: "bold",
+		textAlign: "center",
 	},
 	recordText: {
 		fontSize: 14,
+		textAlign: "center",
 	},
 	image: {
-		width: 200, // Ajustez la largeur et la hauteur selon vos besoins
+		width: "100%", // Ajustez la largeur et la hauteur selon vos besoins
 		height: 200,
 		marginVertical: 10,
 		resizeMode: "cover", // Ajustez le mode de redimensionnement selon vos besoins
+		textAlign: "center",
 	},
 });
