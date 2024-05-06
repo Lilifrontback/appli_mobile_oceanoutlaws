@@ -17,39 +17,48 @@ const SurfView = ({ navigation } : NavigationProps) => {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: "#fff",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: "#FF74D6FF",
       alignItems: "center",
       justifyContent: "center",
-    },
-    cardsContainer: {
+      width: "100%",
+  },
+  cardsContainer: {
+      width: "96%",
       alignItems: "center",
-    },
-    card: {
-      backgroundColor: "#f0f0f0",
+  },
+  card: {
       padding: 10,
       borderRadius: 8,
-      width: "90%",
-    },
-    cardMarginTop: {
-      marginTop: 10,
-    },
-    record: {
+      width: "100%",
+  },
+  cardMarginTop: {
+      marginBottom: 0,
+  },
+  record: {
+      backgroundColor: "#F0F0F0",
+      textAlign: "center",
       marginVertical: 5,
-    },
-    recordTitle: {
+      marginBottom: "10%",
+  },
+  recordTitle: {
       fontWeight: "bold",
-    },
-    recordText: {
+      textAlign: "center",
+  },
+  recordText: {
       fontSize: 14,
-    },
-    image: {
-      width: 200,
+      textAlign: "center",
+  },
+  image: {
+      width: "100%", // Ajustez la largeur et la hauteur selon vos besoins
       height: 200,
       marginVertical: 10,
-      resizeMode: "cover",
-    },
-  });
+      resizeMode: "cover", // Ajustez le mode de redimensionnement selon vos besoins
+      textAlign: "center",
+  },
+});
+  
 
   
   return (
