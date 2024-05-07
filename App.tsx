@@ -4,6 +4,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeView from "./view/homeView";
 import {SurfView} from "./view/surfView";
+import {SurfDetailView} from "./view/surfDetailView";
+
 
 type NavigationProps = {
 	navigation: any; // Remplacez 'any' par le type approprié si vous connaissez le type de la navigation
@@ -21,6 +23,9 @@ export default function App({ navigation }: NavigationProps ) {
 				<Stack.Screen
 				  name="SurfView"
 				  component={SurfView} />
+				  <Stack.Screen
+				  name="SurfViewDetail"
+				  component={SurfDetailView} />
 			  </Stack.Navigator>
 			</NavigationContainer>
 		

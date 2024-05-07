@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 type NavigationProps = {
 	navigation: any; // Remplacez 'any' par le type approprié si vous connaissez le type de la navigation
   };
-const SurfView = ({ navigation } : NavigationProps) => {
+const SurfDetailView = ({ navigation } : NavigationProps) => {
   const [surf, setSurf] = useState<{ records: { [key: string]: string }[] }[] | null>(null);
 
   useEffect(() => {
@@ -72,10 +72,6 @@ const SurfView = ({ navigation } : NavigationProps) => {
                   <Text style={styles.recordTitle}>Surf Break: {record["Surf Break"]}</Text>
                   <Text style={styles.recordText}>Address: {record.Address}</Text>
                   <Image source={{ uri: record.Photos }} style={styles.image} />
-                  <Button
-        title="Go to detail"
-        onPress={() => navigation.navigate("SurfViewDetail")}
-      />
                 </View>
               ))}
             </View>
@@ -89,4 +85,4 @@ const SurfView = ({ navigation } : NavigationProps) => {
   );
 };
 
-export { SurfView };
+export { SurfDetailView };
