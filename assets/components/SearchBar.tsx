@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor:'black',
     display:'flex',
-    marginBottom:'20%',
+    marginBottom:'100%',
     height: 40,
     fontSize: 16,
     paddingHorizontal: 10,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
-    marginBottom:'20%',
+    marginBottom:'100%',
     alignItems: 'center',
     justifyContent: 'center',
   },
