@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeView from "./view/homeView";
 import {SurfView} from "./view/surfView";
-import {SurfDetailView} from "./view/surfDetailView";
+import SurfDetailView from "./view/surfDetailView";
 
 
 type NavigationProps = {

@@ -1,0 +1,25 @@
+[
+    {
+        "records": [
+            {
+                "SurfBreak": "Reef Break",
+                "Photos":
+                    "https://www.voyageursdumonde.fr/voyage-sur-mesure/magazine-voyage/ShowPhoto/1490/0",
+                "Address": "Pipeline, Oahu, Hawaii",
+                "Coordonnées": "21.283333, -157.833333",
+                "Donnéessup": "données sup ReefBreak"
+
+            },
+            {
+                "SurfBreak": "Point Break",
+                "Photos":
+                "https://www.openwaterpedia.com/images/thumb/4/48/Supertubes.jpg/600px-Supertubes.jpg",                
+                "Address": "Supertubes, Jeffreys Bay, South Africa",
+                "Coordonnées": "-34.000000, 18.500000",
+                "Donnéessup": "données sup PointBreak"
+        
+
+            }
+        ]
+    }
+]

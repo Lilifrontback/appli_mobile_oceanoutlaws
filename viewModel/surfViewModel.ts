@@ -1,5 +1,4 @@
 import SurfModel from "../model/surfModel";
-import { SurfView }from "../view/surfView";
 
 class SurfViewModel {
 	private model: SurfModel;
