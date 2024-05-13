@@ -86,6 +86,8 @@ const SurfDetailView = ({route}: NavigationProps) => {
 							Surf Break: {surfRecord.SurfBreak}
 						</Text>
 						<Text style={styles.recordText}>Address: {surfRecord.Address}</Text>
+            <Text style={styles.recordText}>coordonnées GPS: {surfRecord.Coordonnées}</Text>
+            <Text style={styles.recordText}>Données complémentaires: {surfRecord.Donnéessup}</Text>
 						<Image source={{uri: surfRecord.Photos}} style={styles.image} />
 					</View>
 				</View>
