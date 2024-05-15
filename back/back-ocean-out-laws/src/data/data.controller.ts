@@ -10,7 +10,7 @@ export class DataController {
     }
 
     @Get()
-  getData(): string {
+  getData(): any {
     return this.dataService.getData();
   }
 
