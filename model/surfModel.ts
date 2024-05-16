@@ -1,10 +1,11 @@
-import data from "../model/donnees.json";
+//import data from "../model/donnees.json";
 
 class SurfModel {
+	
 	private data: {records: {[key: string]: string}[]}[];
 
 	constructor() {
-		this.data = data;
+		this.data = [];
 	}
 
 	getData(): {records: {[key: string]: string}[]}[] {
@@ -12,21 +13,18 @@ class SurfModel {
 	}
 }
 
-// const fetchSecretData = () => {
-// 	var Airtable = require('airtable');
-// 	const URL = "https://api.airtable.com/appeBLUw8pgjmPH2p";
-// 	const headers = {
-// 		Authorization:
-// 			"patjZg51npK60I1pt.3774c16233e4f3bba19dbd7539c9bc3d82bc3ca8124d89b125775aae917844ff",
-// 	};
-// 	fetch(URL, {headers})
-// 		.then((response) => response.json())
-// 		.then((data) => {
-// 			// Faire quelque chose avec les données, comme les stocker dans un état
-// 			console.log(data);
-// 		});
-// };
+const fetchSecretData = () => {
 
-// fetchSecretData();
+	const URL = "http://127.0.0.1:3000/data";
+
+	fetch(URL)
+		.then((response) => response.json())
+		.then((data) => {
+			// Faire quelque chose avec les données, comme les stocker dans un état
+			console.log(data);
+		});
+};
+const data = fetchSecretData();
+
 
 export default SurfModel;
