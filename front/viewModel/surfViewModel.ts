@@ -14,8 +14,8 @@ class SurfViewModel {
 			records: record.records,
 		}));
 		
-		return data;
+		return data ;
 	}
+	
 }
-
 export default SurfViewModel;

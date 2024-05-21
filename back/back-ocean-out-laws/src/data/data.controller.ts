@@ -10,8 +10,8 @@ export class DataController {
     }
 
     @Get()
-  getData(): any {
-    return this.dataService.getData();
+    DataService(): any {
+    return this.dataService;
   }
 
 }

@@ -66,17 +66,23 @@ const handlePress = (surfBreakName: string) => {
   
   return (
     <View style={styles.container}>
-      {surf !== null ? (
+      {surf !== null ? (  // Vérifie si la variable 'surf' n'est pas nulle
         <View style={styles.cardsContainer}>
-          {surf.map((item, index) => (
+          {surf.flat().map((item, index) => ( // Parcourt chaque élément de 'surf'
+                 
             <View key={index} style={[styles.card, index !== 0 && styles.cardMarginTop]}>
-              {item.records.map((record, recordIndex) => (
-                <View key={recordIndex} style={styles.record}>
-                  <Text style={styles.recordTitle}>Surf Break: {record["SurfBreak"]}</Text>
+              {/* // Crée une vue avec une clé unique et applique des styles conditionnels */}
+              {item.records.map((record, recordIndex) => ( // Parcourt chaque enregistrement dans 'records'
+                <View key={recordIndex} style={styles.record}>  
+                 {/* Crée une vue avec une clé unique et applique des styles */}
+                  <Text style={styles.recordTitle}>Surf Break: {record.SurfBreak}</Text>
+                   {/* Affiche le titre de l'enregistrement */}
                   <Text style={styles.recordText}>Address: {record.Address}</Text>
-                  <Image source={{ uri: record.Photos }} style={styles.image} />
+                  {/* <Image source={{ uri: record.Photos }} style={styles.image} /> */}
+                  
                   <Button
                     title="Go to detail"
+                     // Appelle la fonction 'handlePress' avec le nom du surf break en paramètre
                     onPress={() => handlePress(record["SurfBreak"])}
                   />
                 </View>

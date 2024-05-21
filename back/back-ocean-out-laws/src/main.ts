@@ -7,6 +7,7 @@ async function bootstrap() {
   // await app.listen(3000);
 
   const data = await NestFactory.create(DataModule);
+  data.enableCors();
   await data.listen(3000)
   
 }
