@@ -1,9 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Spot } from './data.entity';
-
 
 @Injectable()
 export class DataService {
@@ -16,41 +14,20 @@ export class DataService {
     return this.dataRepository.find();
   }
 
-  findOne(id: number): Promise<Spot | null> {
-    return this.dataRepository.findOneBy({ id });
+  async findOne(id: number): Promise<Spot | null> {
+    const spot = await this.dataRepository.findOne({ where: { id } });
+    if (!spot) {
+      throw new NotFoundException(`Spot with ID ${id} not found`);
+    }
+    return spot;
   }
 
   async remove(id: number): Promise<void> {
-    await this.dataRepository.delete(id);
+    const result = await this.dataRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Spot with ID ${id} not found`);
+    }
   }
+
+  // Ajoutez d'autres méthodes personnalisées ici si nécessaire
 }
-// @Injectable()
-// export class DataService {
-
-
-  // getData(): any {
-  //    // Lire le fichier JSON synchronement
-  //    const rawData = fs.readFileSync('C:\\Users\\Lquem\\Desktop\\ADA\\projet mobile\\OceanOutlaws\\back\\back-ocean-out-laws\\src\\data\\data.json', 'utf8'); 
-  //  // Parse les données JSON
-  //   const jsonData = JSON.parse(rawData);
-  //       // Filtrer et ne retourner que les champs id et fields de chaque enregistrement
-  //       const filteredData = jsonData.records.map(record => ({
-  //         fields: {
-  //           SurfBreak: record.fields.SurfBreak,
-  //           DifficultyLevel: record.fields.DifficultyLevel,
-  //           Destination: record.fields.Destination,
-  //           Address: record.fields.Address
-            
-  //         }
-  //       }));
-    
-  //       // Retourner les données filtrées
-  //       return filteredData;
-  // }
-//}
-
-
- 
- 
-  
-  

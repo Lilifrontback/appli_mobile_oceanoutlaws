@@ -8,15 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataModule = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
 const data_service_1 = require("./data.service");
 const data_entity_1 = require("./data.entity");
-const typeorm_1 = require("@nestjs/typeorm");
 let DataModule = class DataModule {
 };
 exports.DataModule = DataModule;
 exports.DataModule = DataModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forRoot({
+        imports: [
+            typeorm_1.TypeOrmModule.forRoot({
                 type: 'mysql',
                 host: 'localhost',
                 port: 3306,
@@ -25,8 +26,10 @@ exports.DataModule = DataModule = __decorate([
                 database: 'Spot',
                 entities: [data_entity_1.Spot],
                 synchronize: true,
-            }),],
-        providers: [data_service_1.DataService]
+            }),
+            typeorm_1.TypeOrmModule.forFeature([data_entity_1.Spot]),
+        ],
+        providers: [data_service_1.DataService],
     })
 ], DataModule);
 //# sourceMappingURL=data.module.js.map

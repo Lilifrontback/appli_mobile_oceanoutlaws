@@ -24,11 +24,18 @@ let DataService = class DataService {
     findAll() {
         return this.dataRepository.find();
     }
-    findOne(id) {
-        return this.dataRepository.findOneBy({ id });
+    async findOne(id) {
+        const spot = await this.dataRepository.findOne({ where: { id } });
+        if (!spot) {
+            throw new common_1.NotFoundException(`Spot with ID ${id} not found`);
+        }
+        return spot;
     }
     async remove(id) {
-        await this.dataRepository.delete(id);
+        const result = await this.dataRepository.delete(id);
+        if (result.affected === 0) {
+            throw new common_1.NotFoundException(`Spot with ID ${id} not found`);
+        }
     }
 };
 exports.DataService = DataService;
