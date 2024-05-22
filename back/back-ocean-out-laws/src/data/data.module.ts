@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataService } from './data.service';
+import { DataController } from './data.controller'; // Importez le contrôleur
 import { Spot } from './data.entity';
 
 @Module({
@@ -13,10 +14,11 @@ import { Spot } from './data.entity';
       password: 'root',
       database: 'Spot',
       entities: [Spot],
-      synchronize: true,
+      synchronize: false,
     }),
     TypeOrmModule.forFeature([Spot]),
   ],
   providers: [DataService],
+  controllers: [DataController], // Ajoutez le contrôleur ici
 })
 export class DataModule {}

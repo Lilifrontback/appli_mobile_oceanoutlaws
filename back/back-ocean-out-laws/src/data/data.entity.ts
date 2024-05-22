@@ -5,8 +5,8 @@ export class Spot {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  SurfBreak: string;
+   @Column()
+   SurfBreak: string;
 
   @Column()
   DifficultyLevel: number;
@@ -23,6 +23,5 @@ export class Spot {
   @Column()
   Adress: string;
   
-  @Column({ default: true })
-  isActive: boolean;
+ 
 }

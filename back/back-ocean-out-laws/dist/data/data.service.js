@@ -31,6 +31,10 @@ let DataService = class DataService {
         }
         return spot;
     }
+    async createSpot(newSpotData) {
+        const newSpot = this.dataRepository.create(newSpotData);
+        return this.dataRepository.save(newSpot);
+    }
     async remove(id) {
         const result = await this.dataRepository.delete(id);
         if (result.affected === 0) {

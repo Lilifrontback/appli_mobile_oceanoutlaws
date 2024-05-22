@@ -10,6 +10,7 @@ exports.DataModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const data_service_1 = require("./data.service");
+const data_controller_1 = require("./data.controller");
 const data_entity_1 = require("./data.entity");
 let DataModule = class DataModule {
 };
@@ -25,11 +26,12 @@ exports.DataModule = DataModule = __decorate([
                 password: 'root',
                 database: 'Spot',
                 entities: [data_entity_1.Spot],
-                synchronize: true,
+                synchronize: false,
             }),
             typeorm_1.TypeOrmModule.forFeature([data_entity_1.Spot]),
         ],
         providers: [data_service_1.DataService],
+        controllers: [data_controller_1.DataController],
     })
 ], DataModule);
 //# sourceMappingURL=data.module.js.map
