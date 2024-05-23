@@ -16,11 +16,10 @@ export class DataController {
     return this.dataService.findOne(id);
   }
   @Post()
-  async createSpot(@Body('id') spotData: Partial<Spot>) {
+  async createSpot(@Body() spotData: Partial<Spot>) {  // Correction ici
     return this.dataService.createSpot(spotData);
   }
-
-  @Delete(':id')
+ @Delete(':id')
   async supprimerDonnee(@Param('id') id: number): Promise<void> {
     return this.dataService.remove(id);
   }
